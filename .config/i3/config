@@ -101,7 +101,7 @@ set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
 set $workspace9 "9"
-set $workspace10 "10: Spotify "
+set $workspace10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -187,6 +187,7 @@ bindsym $mod+shift+c exec google-chrome-stable
 
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 exec --no-startup-id compton 
+exec --no-startup-id xrdb .Xresources
 
 for_window [class="Spotify"] move to workspace $workspace10
 

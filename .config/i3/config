@@ -99,7 +99,7 @@ set $workspace4 "4"
 set $workspace5 "5"
 set $workspace6 "6"
 set $workspace7 "7"
-set $workspace8 "8"
+set $workspace8 "8: "
 set $workspace9 "9: "
 set $workspace10 "10: "
 
@@ -189,6 +189,9 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 exec --no-startup-id compton 
 exec --no-startup-id xrdb .Xresources
 
+assign [class="google-chrome"] $workspace3
+assign [class="SmartGit"] $workspace8
+assign [class="jetbrains-studio"] $workspace9
 for_window [class="Spotify"] move to workspace $workspace10
 
 bindsym XF86AudioLowerVolume exec amixer set Master 5-

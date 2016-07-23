@@ -133,3 +133,6 @@ function! HasPaste()
     en
         return ''
     endfunction
+
+nmap <S-j> 5j
+nmap <S-k> 5k

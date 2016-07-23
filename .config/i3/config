@@ -9,6 +9,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindysm Menu exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -124,7 +125,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command i3status
+        status_command i3blocks
 }
 
 # color definitions
@@ -147,15 +148,18 @@ bindsym $mod+shift+x exec $lock_command
 bindsym $mod+shift+c exec google-chrome-stable
 
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
-exec --no-startup-id compton 
 exec --no-startup-id xrdb .Xresources
 
-assign [class="google-chrome"] $workspace3
-assign [class="SmartGit"] $workspace8
-assign [class="jetbrains-studio"] $workspace9
+for_window [class="google-chrome"] move to workspace $workspace3
+for_window [class="SmartGit"] move to workspace $workspace8
+for_window [class="jetbrains-studio"] move to workspace $workspace9
 for_window [class="Spotify"] move to workspace $workspace10
 
-bindsym XF86AudioLowerVolume exec amixer set Master 5-
-bindsym XF86AudioRaiseVolume exec amixer set Master 5+
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioLowerVolume exec amixer set Master 5- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer set Master 5+ && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer set Master toggle && pkill -RTMIN+10 i3blocks
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 -time 250
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 250
+
 bindsym --release Print exec scrot -s -e 'mkdir -p ~/Pictures/Screenshots && mv $f ~/Pictures/Screenshots/'

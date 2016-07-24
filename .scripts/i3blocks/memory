@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $num_args = $#ARGV + 1;
+my $result=`free -m | grep Mem`; 
+my @mems = split(/ /, $result);
+@mems = grep /\S/, @mems;
+
+my $memory_total = $mems[1];
+my $memory_used = $mems[2];
+
+my $format = "";
+if($num_args > 0) {
+    $format = $ARGV[0];
+} else {
+    $format = "%Umb/%Tmb";
+}
+
+$format =~ s/%U/$memory_used/g;
+$format =~ s/%T/$memory_total/g;
+
+print $format . "\n";

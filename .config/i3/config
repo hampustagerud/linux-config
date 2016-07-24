@@ -126,6 +126,10 @@ bindsym $mod+r mode "resize"
 
 bar {
         status_command i3blocks
+
+        colors {
+
+        }
 }
 
 # color definitions
@@ -147,7 +151,7 @@ bindsym $mod+shift+x exec $lock_command
 
 bindsym $mod+shift+c exec google-chrome-stable
 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.png
 exec --no-startup-id xrdb .Xresources
 
 for_window [class="google-chrome"] move to workspace $workspace3
@@ -159,7 +163,7 @@ bindsym XF86AudioLowerVolume exec amixer set Master 5- && pkill -RTMIN+10 i3bloc
 bindsym XF86AudioRaiseVolume exec amixer set Master 5+ && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer set Master toggle && pkill -RTMIN+10 i3blocks
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 -time 250
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 250
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 -time 250 && pkill -RTMIN+10 i3blocks
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 250 && pkill -RTMIN+10 i3blocks
 
 bindsym --release Print exec scrot -s -e 'mkdir -p ~/Pictures/Screenshots && mv $f ~/Pictures/Screenshots/'

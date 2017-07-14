@@ -10,7 +10,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'wincent/command-t'
 Plugin 'felixhummel/setcolors.vim'
 Plugin 'rdnetto/YCM-Generator'
-Plugin 'jeaye/color_coded'
+"Plugin 'jeaye/color_coded'
 call vundle#end()
 
 syntax enable

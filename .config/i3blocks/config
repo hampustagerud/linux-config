@@ -40,7 +40,7 @@ separator=true
 
 [wifi]
 #instance=wlp3s0
-interval=10
+interval=2
 separator=true
 
 # Disk usage

@@ -19,7 +19,9 @@ keycode 133 = ISO_Level3_Shift
 add control = Control_L Control_R
 add mod1 = Alt_L Meta_L
 
-! End makes {
 
-keycode 115 = braceleft bracketleft 
-keycode 112 = braceright bracketright 
+!--------- SPECIAL KEYS --------
+! Home is {
+! End is }
+keycode 110 = braceleft bracketleft 
+keycode 115 = braceright bracketright 

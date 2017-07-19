@@ -1,33 +1,19 @@
-#=====================================================
-#
-#   To learn more about how to configure Polybar
-#   go to https://github.com/jaagr/polybar
-#
-#   The README contains alot of information
-#
-#=====================================================
+# My polybar config
 
 [colors]
-#background = ${xrdb:color0:#222}
 background = #AF000000
 background-alt = #444
-#foreground = ${xrdb:color7:#222}
-foreground = #fff
+foreground = #000000
 foreground-alt = #888
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
 [bar/hampus]
-#monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 30
-#offset-x = 1%
-#offset-y = 1%
-radius = 0
-fixed-center = false
+height = 40
 
-background = ${colors.background}
+background = #00000000
 foreground = ${colors.foreground}
 
 line-size = 5
@@ -52,12 +38,7 @@ modules-right = spotify volume memory cpu wlan eth battery temperature date powe
 
 tray-position = right
 tray-padding = 2
-#tray-transparent = true
-#tray-background = #55555555
-
-#wm-restack = i3
-
-#override-redirect = true
+tray-transparent = true
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -72,17 +53,14 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-# Only show workspaces on the same output as the bar
-#pin-workspaces = true
-
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 # focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = #AF000000
-label-focused-underline = #FFFF00
+label-focused-foreground = #000000
+label-focused-background = #FFFF00
 label-focused-padding = 3
 
 # unfocused = Inactive workspace on any monitor
@@ -113,7 +91,8 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 label = %percentage%%
-format-underline = #a52a2a
+format-padding = 2
+format-background = #a52a2a
 
 [module/spotify]
 type = custom/script
@@ -121,13 +100,14 @@ exec =  ~/.config/polybar/scripts/spotify.sh %artist% - %title%
 exec-if = pgrep -x spotify
 interval = 2
 format-prefix = " "
-format-underline = #2fd566
+format-background = #2fd566
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-underline = #ff007f
+format-background = #ff007f
+format-padding = 2
 
 [module/wlan]
 type = internal/network
@@ -136,7 +116,8 @@ interval = 3.0
 
 format-connected-prefix = " "
 format-connected = <label-connected>
-format-connected-underline = #9f78e1
+format-connected-background = #9f78e1
+format-connected-padding = 2
 label-connected = %essid%
 label-connected-alt = %local_ip%
 format-disconnected =
@@ -146,7 +127,8 @@ type = internal/network
 interface = enp1s0
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-background = #55aa55
+format-connected-padding = 2
 label-connected = %local_ip%
 format-disconnected =
 
@@ -159,7 +141,8 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 format-prefix = " "
-format-underline = #0a6cf5
+format-background = #0a6cf5
+format-padding = 2
 label = %date% %time%
 
 [module/volume]
@@ -168,7 +151,8 @@ type = internal/volume
 label-volume = %percentage%%
 format-volume = <ramp-volume> <label-volume>
 label-volume-foreground = ${root.foreground}
-format-volume-underline = #00aaaa
+format-volume-background = #00aaaa
+format-volume-padding = 2
 
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = " MUTED"
@@ -184,11 +168,15 @@ adapter = ACAD
 full-at = 98
 warn-at = 25
 
+format-charging-padding = 2
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
+format-charging-background = #ffb52a
 
+format-discharging-padding = 2
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
+format-discharging-background = ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
@@ -215,9 +203,10 @@ thermal-zone = 0
 warn-temperature = 50
 
 format = <ramp> <label>
-format-underline = #fd0a4d
+format-background = #fd0a4d
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format-warn-underline = ${self.format-background}
+format-padding = 2
 
 label = %temperature%
 label-warn = %temperature%
@@ -233,6 +222,7 @@ ramp-4 = 
 type = custom/menu
 
 format-spacing = 1
+format-padding = 2
 
 label-open = "  "
 label-open-foreground = ${colors.secondary}

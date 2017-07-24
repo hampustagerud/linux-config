@@ -204,12 +204,12 @@ warn-temperature = 50
 format = <ramp> <label>
 format-foreground = ${colors.yellow}
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-background}
+format-warn-foreground = ${colors.red}
+format-warn-underline = ${self.format-warn-foreground}
 format-padding = 2
 
 label = %temperature%
 label-warn = %temperature%
-label-warn-foreground = ${colors.red}
 
 ramp-0 = 
 ramp-1 = 

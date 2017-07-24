@@ -1,26 +1,30 @@
 # My polybar config
 
 [colors]
-background = #AF000000
-background-alt = #444
-foreground = #000000
-foreground-alt = #888
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background =    #2d2d2d
+foreground =    #cccccc
+selection  =    #515151
+currline   =    #393939
+comment    =    #999999
+red        =    #f2777a
+orange     =    #f99157
+yellow     =    #ffcc66
+green      =    #99cc99
+aqua       =    #66cccc
+blue       =    #6699cc
+purple     =    #cc99cc
 
 [bar/hampus]
 width = 100%
 height = 40
 
-background = #00000000
-foreground = ${colors.foreground}
+background =    ${colors.background}
+foreground =    ${colors.foreground}
 
 line-size = 5
 line-color = #f00
 
 border-size = 0
-border-color = #00000000
 
 padding-left = 2
 padding-right = 2
@@ -34,7 +38,7 @@ font-2 = FontAwesome:pixelsize=12;3
 
 modules-left = i3
 modules-center = 
-modules-right = spotify volume memory cpu wlan eth battery temperature date powermenu
+modules-right = volume memory cpu wlan eth temperature date battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -54,28 +58,26 @@ index-sort = true
 wrapping-scroll = false
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
 
 # focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-foreground = #000000
-label-focused-background = #FFFF00
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background}
 label-focused-padding = 3
 
 # unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
+label-unfocused-foreground = ${colors.selection}
 label-unfocused-padding = 3
 
 # visible = Active workspace on unfocused monitor
 label-visible = %index%
-label-visible-background = ${colors.background}
-#label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
+label-visible-background = ${self.label-focused-background}
 
 # urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-background = ${colors.secondary}
+label-urgent-background = ${colors.red}
 label-urgent-padding = 5
 
 [module/xbacklight]
@@ -92,7 +94,7 @@ interval = 2
 format-prefix = " "
 label = %percentage%%
 format-padding = 2
-format-background = #a52a2a
+format-foreground = ${colors.green}
 
 [module/spotify]
 type = custom/script
@@ -106,7 +108,7 @@ format-background = #2fd566
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-background = #ff007f
+format-foreground = ${colors.purple}
 format-padding = 2
 
 [module/wlan]
@@ -116,7 +118,7 @@ interval = 3.0
 
 format-connected-prefix = " "
 format-connected = <label-connected>
-format-connected-background = #9f78e1
+format-connected-foreground = ${colors.orange}
 format-connected-padding = 2
 label-connected = %essid%
 label-connected-alt = %local_ip%
@@ -127,7 +129,7 @@ type = internal/network
 interface = enp1s0
 interval = 3.0
 
-format-connected-background = #55aa55
+format-connected-foreground = ${colors.orange}
 format-connected-padding = 2
 label-connected = %local_ip%
 format-disconnected =
@@ -141,7 +143,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 format-prefix = " "
-format-background = #0a6cf5
+format-foreground = ${colors.blue}
 format-padding = 2
 label = %date% %time%
 
@@ -150,11 +152,10 @@ type = internal/volume
 
 label-volume = %percentage%%
 format-volume = <ramp-volume> <label-volume>
-label-volume-foreground = ${root.foreground}
-format-volume-background = #00aaaa
+format-volume-foreground =   ${colors.aqua}
 format-volume-padding = 2
 
-format-muted-foreground = ${colors.foreground-alt}
+format-muted-foreground = ${colors.comment}
 label-muted = " MUTED"
 
 ramp-volume-0 = 
@@ -168,25 +169,22 @@ adapter = ACAD
 full-at = 98
 warn-at = 25
 
-format-charging-padding = 2
+format-charging-padding = 1
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
-format-charging-background = #ffb52a
+format-charging-foreground = ${colors.foreground}
 
-format-discharging-padding = 2
+format-discharging-padding = ${self.format-charging-padding}
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-format-discharging-background = ${self.format-charging-underline}
+format-discharging-foreground = ${self.format-charging-foreground}
 
-format-full-padding = 2
+format-full-padding = ${self.format-charging-padding}
 format-full-prefix = " "
-format-full-underline = ${self.format-charging-underline}
-format-full-background = ${self.format-charging-underline}
+format-full-foreground = ${self.format-charging-foreground}
 
 ramp-capacity-0 = 
-ramp-capacity-0-foreground = ${colors.secondary}
+ramp-capacity-0-foreground = ${colors.red}
 ramp-capacity-1 = 
-ramp-capacity-1-foreground = ${colors.secondary}
+ramp-capacity-1-foreground = ${colors.background}
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
@@ -204,14 +202,14 @@ thermal-zone = 0
 warn-temperature = 50
 
 format = <ramp> <label>
-format-background = #fd0a4d
+format-foreground = ${colors.yellow}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-background}
 format-padding = 2
 
 label = %temperature%
 label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.red}
 
 ramp-0 = 
 ramp-1 = 
@@ -222,15 +220,15 @@ ramp-4 = 
 [module/powermenu]
 type = custom/menu
 
-format-spacing = 1
-format-padding = 2
+format-spacing = 2
+format-padding = 1
 
-label-open = "  "
-label-open-foreground = ${colors.secondary}
+label-open = ""
+label-open-foreground = ${colors.foreground}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.red}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${colors.foreground}
 
 menu-0-0 = logout
 menu-0-0-exec = menu-open-1

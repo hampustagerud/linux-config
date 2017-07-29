@@ -157,7 +157,7 @@ exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id polybar hampus -c ~/.config/polybar/config
 
-bindsym $mod3+space exec dmenu_run -nb '#2d2d2d' -nf '#cccccc' -fn 'fira sans-24'
+bindsym $mod3+space exec dmenu_run -nb '#2d2d2d' -nf '#cccccc' -fn 'fira sans-24' -sb '#f99157'
 
 new_window normal 1
 new_float normal 4

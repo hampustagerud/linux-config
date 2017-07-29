@@ -13,7 +13,7 @@ font pango:Fira 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod3+Return exec termite -e tmux
+bindsym $mod3+Return exec termite
 
 # kill focused window
 bindsym $mod3+q kill

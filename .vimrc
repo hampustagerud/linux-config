@@ -108,8 +108,7 @@ set laststatus=2
 set statusline=\ CWD:\ %r%{getcwd()}%h\ \ %F%m%r%h\ %w\ %=(%l,\ %c)\ \
 
 if version >= 700
-    au InsertEnter * hi StatusLine term=reverse ctermfg=0  gui=bold
-    au InsertLeave * hi StatusLine term=reverse ctermfg=15 gui=reverse
+    hi StatusLine term=reverse ctermfg=0  gui=bold
 endif
 
 "Disable arrowkeys

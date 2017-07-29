@@ -17,6 +17,7 @@ set t_Co=256
 syntax enable
 set background=dark
 colorscheme Tomorrow-Night-Eighties
+highlight Normal ctermfg=7 ctermbg=black
 set guifont=Hack
 
 set history=500

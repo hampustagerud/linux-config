@@ -127,6 +127,8 @@ mode "Resize" {
 }
 bindsym $mod+r mode "Resize"
 
+hide_edge_borders both
+
 # color definitions
 #set $bg-color               #2f343f
 set $bg-color               #2d2d2d

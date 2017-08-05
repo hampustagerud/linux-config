@@ -1,5 +1,4 @@
 gaps inner 0
-#smart_gaps on
 
 set $mod Mod1
 set $mod2 Mod1
@@ -17,8 +16,6 @@ bindsym $mod3+Return exec termite
 
 # kill focused window
 bindsym $mod3+q kill
-
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 #bindsym $mod+h focus left
@@ -148,13 +145,15 @@ client.unfocused        $bg-color               $bg-color               $inactiv
 client.focused_inactive $inactive-bg-color      $inactive-bg-color      $inactive-text-color    $indicator-color
 client.urgent           $urgent-bg-color        $urgent-bg-color        $text-color             $indicator-color
 
-set $lock_command i3lock-fancy -gp
+set $lock_command i3lock -e --indicator --radius=200 -c#2d2d2d --textcolor=#ccccccff --insidecolor=#2d2d2dff --insidevercolor=#2d2d2dff --insidewrongcolor=#2d2d2dff --linecolor=#2d2d2dff --ringcolor=#999999ff --ringvercolor=#ffcc66ff --ringwrongcolor=#f2777aff --keyhlcolor=#f99157ff --bshlcolor=#f99157ff --separatorcolor=#f99157ff --veriftext="Verifying" --wrongtext="Wrong" --textsize=40 
 bindsym $mod+shift+x exec $lock_command
 
 bindsym $mod+shift+c exec google-chrome-stable
 
-exec --no-startup-id compton -b -c -f -l -5 -t -3 -r 8
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.png
+
+exec --no-startup-id compton -b -c -f -l -5 -t -3 -r 8
+exec --no-startup-id xss-lock -- $lock_command
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id polybar hampus -c ~/.config/polybar/config

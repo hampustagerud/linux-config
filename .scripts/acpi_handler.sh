@@ -3,8 +3,8 @@
 
 case "$1" in
     button/power)
-       /home/hampus/.scripts/suspendlinux
-       ;;
+        systemctl suspend
+        ;;
     ac_adapter)
         case "$2" in
             AC|ACAD|ADP0)
@@ -42,7 +42,7 @@ case "$1" in
     button/lid)
         case "$3" in
             close)
-                /home/hampus/.scripts/suspendlinux
+                systemctl suspend
                 ;;
             open)
                 logger 'LID opened'

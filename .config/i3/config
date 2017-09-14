@@ -1,4 +1,4 @@
-gaps inner 0
+#gaps inner 0
 
 set $mod Mod1
 set $mod2 Mod1
@@ -150,9 +150,9 @@ bindsym $mod+shift+x exec $lock_command
 
 bindsym $mod+shift+c exec google-chrome-stable
 
-exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.png
+exec_always --no-startup-id ~/.fehbg
 
-exec --no-startup-id compton -b -c -f -l -5 -t -3 -r 8
+exec --no-startup-id compton -b -c -f -l -5 -t -3
 exec --no-startup-id xss-lock -- $lock_command
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id xmodmap ~/.Xmodmap

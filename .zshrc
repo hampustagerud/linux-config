@@ -83,3 +83,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+zstyle ':completion:*' special-dirs true
+expand-or-complete-special-dot() {
+  if [[ $BUFFER == "." ]]; then
+    LBUFFER="./"
+  fi
+  zle expand-or-complete
+}
+zle -N expand-or-complete-special-dot
+bindkey "^I" expand-or-complete-special-dot
+setopt COMPLETE_ALIASES
+

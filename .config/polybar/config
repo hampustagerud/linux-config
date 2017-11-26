@@ -38,7 +38,7 @@ font-2 = FontAwesome:pixelsize=12;3
 
 modules-left = i3
 modules-center =  
-modules-right = volume memory cpu wlan eth temperature date pkg battery powermenu
+modules-right = volume memory cpu wlan eth temperature date battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -221,12 +221,12 @@ ramp-4 = 
 
 [module/pkg]
 type = custom/script
-interval = 1800
+interval = 1
 format = <label>
+format-prefix =  " "
 format-foreground = ${colors.green}
-label = "%output:0:30%"
 exec = ~/.config/polybar/scripts/pkg.sh
-exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+#exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 
 
 [module/powermenu]

@@ -1,3 +1,3 @@
 if [ "$TMUX" = "" ]; then
-    startx
+    #startx
 fi

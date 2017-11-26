@@ -1,7 +1,6 @@
-#!/bin/bash
-updates=$(yaourt -Qua | wc -l)
+#!/bin/sh
 
-if [[ "$updates" != "0" ]]
-then
-    echo "$updates "
+updates=$(yaourt -Qua | wc -l)
+if [[ "$updates" != "0" ]]; then
+    echo "$updates"
 fi
